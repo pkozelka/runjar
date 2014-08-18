@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="setup" default="test"
+         xmlns="antlib:org.apache.tools.ant"
+         xmlns:antcontrib="antlib:net.sf.antcontrib"
+         xmlns:artifact="urn:maven-artifact-ant"
+         xmlns:flyway="antlib:com.googlecode.flyway.ant"
+         xmlns:if="ant:if"
+         xmlns:unless="ant:unless"
+         xmlns:local="antmacro:local"
+        >
+    <!--
+        <taskdef resource="net/sf/antcontrib/antlib.xml" uri="antlib:net.sf.antcontrib"/>
+        <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant"/>
+    -->
+
+    <target name="test">
+        <echo>Hello from RunJar for ANT !</echo>
+        <echo>signal.file=${signal.file}</echo>
+        <echo>user.dir=${user.dir}</echo>
+        <echo>basedir=${basedir}</echo>
+        <fail unless="signal.file">ERROR: We need the signal.file property!</fail>
+        <echo file="${signal.file}">Works!</echo>
+        <propertyfile file="${basedir}/.shutdown.properties">
+            <entry key="runjar.shutdown.args" value=",-f,${ant.file},on-shutdown"/>
+        </propertyfile>
+    </target>
+
+    <target name="on-shutdown">
+        <echo file="${signal.file}.shutdown">SHUTDOWN CALLED</echo>
+        <echo>SHUTDOWN CALLED</echo>
+    </target>
+</project>

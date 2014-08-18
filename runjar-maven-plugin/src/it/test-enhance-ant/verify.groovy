@@ -1,0 +1,5 @@
+File runnableJar = new File(basedir, 'target/test-enhance-ant-0-SNAPSHOT.jar')
+assert runnableJar.exists()
+File signal = new File(basedir, "target/signal.txt")
+println([System.getProperty("java.home") + "/bin/java", "-jar", runnableJar.toString(), "-Dsignal.file="+signal.getAbsolutePath()].execute().text)
+assert signal.exists()
