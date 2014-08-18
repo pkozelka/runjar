@@ -26,7 +26,7 @@
     </target>
 
     <target name="on-shutdown">
-        <echo file="${signal.file}.shutdown">SHUTDOWN CALLED</echo>
-        <echo>SHUTDOWN CALLED</echo>
+        <echo file="${runjar.file}.shutdown-was-called">SHUTDOWN CALLED</echo>
+        <echo>SHUTDOWN CALLED: ${signal.file}.shutdown-was-called</echo>
     </target>
 </project>
