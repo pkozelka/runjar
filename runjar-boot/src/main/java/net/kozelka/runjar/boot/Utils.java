@@ -94,8 +94,8 @@ public class Utils {
     /**
      * Copies file from source to destination
      *
-     * @@param is source input stream
-     * @@param os destination output stream
+     * @param is source input stream
+     * @param os destination output stream
      */
     private static void copyFile(InputStream is, OutputStream os) throws IOException {
 
@@ -111,8 +111,8 @@ public class Utils {
     /**
      * Executes given command with parameters
      *
-     * @@param command command to execute
-     * @@return command exit value
+     * @param command command to execute
+     * @return command exit value
      */
     public static int execute(final File dir, String[] command) throws IOException, InterruptedException {
 
