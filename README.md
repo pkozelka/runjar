@@ -1,6 +1,6 @@
 # RUNJAR
 
-[![Build Status](https://travis-ci.org/pkozelka/runjar?branch=master)](https://travis-ci.org/pkozelka/runjar)
+[![Build Status](https://travis-ci.org/pkozelka/runjar.svg?branch=master)](https://travis-ci.org/pkozelka/runjar)
 
 Helps you simply create runnable Java archives. You know, those you can run like this:
 
