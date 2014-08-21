@@ -47,21 +47,12 @@ public class RunjarProperties {
         return Utils.argsList(properties.getProperty(ARGS_PREPEND_PROP));
     }
 
-    public File getBasedir() throws IOException {
-        if (basedir == null) {
-            final String basedirArg = System.getProperty("runjar.basedir");
-            if (basedirArg == null) {
-                basedir = File.createTempFile("runjar-",".tmp");
-                basedir.delete();
-            } else {
-                basedir = new File(basedirArg);
-            }
-            basedir.mkdirs();
-            if (!basedir.isDirectory()) {
-                throw new IOException("Failed to create runjar.basedir: " + basedir);
-            }
-        }
+    public File getBasedir() {
         return basedir;
+    }
+
+    public void setBasedir(File basedir) {
+        this.basedir = basedir;
     }
 
     static RunjarProperties load() throws IOException {

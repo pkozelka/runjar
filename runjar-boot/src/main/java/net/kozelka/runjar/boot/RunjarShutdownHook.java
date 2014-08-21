@@ -8,6 +8,7 @@ import java.io.File;
 class RunjarShutdownHook extends Thread {
     private File dirToDelete;
     private Runnable customAction;
+    private boolean verbose;
 
     public void setDirToDelete(File dirToDelete) {
         this.dirToDelete = dirToDelete;
@@ -21,9 +22,12 @@ class RunjarShutdownHook extends Thread {
         return dirToDelete == null && customAction == null;
     }
 
+    public void setVerbose(boolean verbose) {
+        this.verbose = verbose;
+    }
+
     @Override
     public void run() {
-        System.err.println("");
         if (customAction != null) {
             customAction.run();
         }
@@ -33,7 +37,7 @@ class RunjarShutdownHook extends Thread {
     }
 
     private void deepDeleteTryHard(File root) {
-        System.err.println("Deleting temporary files in " + root);
+        logInfo("Deleting temporary files in " + root.toString());
         Utils.deepDelete(root);
         final long limit = System.currentTimeMillis() + 1000;
         while (root.exists() && System.currentTimeMillis()<limit) {
@@ -47,7 +51,17 @@ class RunjarShutdownHook extends Thread {
             Utils.deepDelete(root);
         }
         if (root.exists()) {
-            System.err.println("Some temporary files could not be deleted - giving up");
+            logError("Some temporary files could not be deleted - giving up");
         }
+    }
+
+    private void logInfo(String msg) {
+        if (verbose) {
+            System.err.println(msg);
+        }
+    }
+
+    private void logError(String msg) {
+        System.err.println(msg);
     }
 }
