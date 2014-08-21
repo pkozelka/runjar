@@ -9,46 +9,11 @@ import java.util.Properties;
 
 /**
  * Launches an executable jar containing its dependency libraries.
- * <p>Libraries must be located directly in the toplevel directory "lib" (nested dirs are not supported). They are extracted into temporary files that are deleted when JVM exits.
- * <p>For verbose processing of the boot, specify JVM property "<code>runjar.verbose</code>" with value "<b>true</b>".
- * It prints list of extracted libraries and synopsis of executed main method.
- * </p>
- * <p>Example:<br/>
- * <pre>java -Drunjar.verbose=true -jar myconfig.runjar</pre>
- * </p>
- * <p>The jar must contain a META-INF/MANIFEST.MF file where the boot reads its configuration.
- * Following properties can be defined there:
- * <ul>
- * <li><b>Main-Class</b> (required) - must be "net.kozelka.runjar.boot.RunjarBoot"</li>
- * <li><b>runjar-main-class</b> (required) - the class to be executed</li>
- * <li><b>runjar-args</b> (default="") - space separated default list of arguments to be passed to above method.
- * Note that user can override this list by specifying one or more args on commandline</li>
- * </ul>
- * </p>
- * <p>
- * So, the runjar archive structure looks like this:
- * <pre>
- * META-INF/MANIFEST.MF
- * net.kozelka.runjar.boot.RunjarBoot.class
- * lib/mylibrary1.jar
- * lib/someotherlibrary.jar
- * ...
- * </pre>
- * </p>
- * <p>net.kozelka.runjar.boot.RunjarBoot sets the property <code>runjar.file</code> to the original executable jar.
- * Applications can use it to detect that they run in a RunJar and to extract some more resources from there.</p>
- * <p>Setting runjar.keep to true causes the temporary directory to not be deleted when execution ends</p>
  *
  * @author Petr Kozelka
  */
 public class RunjarBoot {
 
-    /**
-     * Starts net.kozelka.runjar.boot.RunjarBoot from java command
-     *
-     * @param args command line arguments
-     * @throws Exception when anything fails
-     */
     public static void main(String[] args) throws Exception {
         final File runjarfile = new File(System.getProperty("java.class.path")); // we assume simple cli execution
         final List<File> classpath = new ArrayList<File>();
@@ -56,10 +21,7 @@ public class RunjarBoot {
 
         final RunjarProperties props = RunjarProperties.load();
         //TODO: add support for --version, --help and --runjar here - nothing is unpacked yet; maybe also --bash_completion somehow
-        final File basedir = File.createTempFile("runjar-",".tmp");
-        basedir.delete();
-        basedir.mkdirs();
-        props.setBasedir(basedir);
+        final File basedir = props.getBasedir();
         Utils.extract(runjarfile, basedir, props.verbose, new FileFilter() {
             private final File runjarLib = new File(basedir, "lib");
             private final String metainfPrefix = "META-INF" + File.separatorChar;
@@ -87,8 +49,7 @@ public class RunjarBoot {
             }
         });
 
-        //TODO: somehow, reintroduce the option to perform an action upon exit, to support graceful JBoss shutdown (needed on Windows where it otherwise keeps running)
-
+        // These properties will be available to the application
         final Properties jvmProperties = new Properties();
         jvmProperties.setProperty("runjar.file", runjarfile.getAbsolutePath());
         jvmProperties.setProperty("runjar.basedir", basedir.getAbsolutePath());
