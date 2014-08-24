@@ -61,7 +61,7 @@ public class Utils {
         return sb.toString();
     }
 
-    static void extract(File zip, File dest, boolean verbose, FileFilter fileFilter) throws IOException {
+    static void extract(File zip, File dest, SimpleLogger logger, FileFilter fileFilter) throws IOException {
         try {
             final ZipFile zipFile = new ZipFile(zip);
             final Enumeration<? extends ZipEntry> ee = zipFile.entries();
@@ -71,9 +71,7 @@ public class Utils {
                 if (uri.endsWith("/")) continue; // ignore dirs
                 final File destFile = new File(dest, uri);
                 if (! fileFilter.accept(destFile)) continue;
-                if (verbose) {
-                        System.out.println(String.format("Extracting !/%s into %s", uri, destFile));
-                }
+                logger.info("Extracting !/%s into %s", uri, destFile);
                 destFile.getParentFile().mkdirs();
                 final OutputStream os = new FileOutputStream(destFile);
                 try {

@@ -22,7 +22,10 @@ public class RunjarProperties {
     /**
      * @todo instead use simple configurable logging/console filter
      */
-    final boolean verbose = Boolean.getBoolean("runjar.verbose");
+    public final SimpleLogger logger;
+    {
+        logger = Boolean.getBoolean("runjar.verbose") ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
+    }
     final boolean keep = Boolean.getBoolean("runjar.keep");
     //TODO: protected static final String RUNJAR_ARGS_CONVERTOR = "runjar.ArgsConvertor";
     //TODO: protected static final String RUNJAR_SHUTDOWN_HOOK = "runjar.ShutdownHook";

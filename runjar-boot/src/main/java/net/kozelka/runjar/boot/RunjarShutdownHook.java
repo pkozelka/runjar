@@ -8,7 +8,7 @@ import java.io.File;
 class RunjarShutdownHook extends Thread {
     private File dirToDelete;
     private Runnable customAction;
-    private boolean verbose;
+    private SimpleLogger logger;
 
     public void setDirToDelete(File dirToDelete) {
         this.dirToDelete = dirToDelete;
@@ -22,8 +22,8 @@ class RunjarShutdownHook extends Thread {
         return dirToDelete == null && customAction == null;
     }
 
-    public void setVerbose(boolean verbose) {
-        this.verbose = verbose;
+    public void setLogger(SimpleLogger logger) {
+        this.logger = logger;
     }
 
     @Override
@@ -37,7 +37,7 @@ class RunjarShutdownHook extends Thread {
     }
 
     private void deepDeleteTryHard(File root) {
-        logInfo("Deleting temporary files in " + root.toString());
+        logInfo("Deleting temporary files in %s", root.toString());
         Utils.deepDelete(root);
         final long limit = System.currentTimeMillis() + 1000;
         while (root.exists() && System.currentTimeMillis()<limit) {
@@ -55,10 +55,8 @@ class RunjarShutdownHook extends Thread {
         }
     }
 
-    private void logInfo(String msg) {
-        if (verbose) {
-            System.err.println(msg);
-        }
+    private void logInfo(String msg, Object ... args) {
+        logger.info(msg, args);
     }
 
     private void logError(String msg) {

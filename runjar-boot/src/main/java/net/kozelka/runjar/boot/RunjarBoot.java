@@ -22,7 +22,7 @@ public class RunjarBoot {
         final RunjarProperties props = RunjarProperties.load();
         //TODO: add support for --version, --help and --runjar here - nothing is unpacked yet; maybe also --bash_completion somehow
         final File basedir = props.getBasedir();
-        Utils.extract(runjarfile, basedir, props.verbose, new FileFilter() {
+        Utils.extract(runjarfile, basedir, props.logger, new FileFilter() {
             private final File runjarLib = new File(basedir, "lib");
             private final String metainfPrefix = "META-INF" + File.separatorChar;
 
@@ -68,10 +68,9 @@ public class RunjarBoot {
         request.setArgs(allArgs);
         final Invoker invoker = new ForkedInvoker();
 
-        if (props.verbose) {
-            System.out.println("Invoking " + props.getMainClass() + ".main " + Arrays.asList(allArgs));
-            System.out.println("  classpath: " + classpath);
-        }
+        final SimpleLogger logger = props.logger;
+        logger.info("Invoking %s.main %s", props.getMainClass(), allArgs);
+        logger.info("  classpath: %s", classpath);
 
         final RunjarShutdownHook shutdownHook = new RunjarShutdownHook();
         if (!props.keep) {
@@ -82,15 +81,13 @@ public class RunjarBoot {
             final CustomShutdownAction customAction = new CustomShutdownAction(invoker, request);
             customAction.setShutdownFile(new File(Utils.replaceProperties(shutdownFile, jvmProperties)));
             shutdownHook.setCustomAction(customAction);
-            shutdownHook.setVerbose(props.verbose);
+            shutdownHook.setLogger(logger);
         }
         if (!shutdownHook.isEmpty()) {
             Runtime.getRuntime().addShutdownHook(shutdownHook);
         }
         final int exitcode = invoker.invoke(request);
-        if (props.verbose) {
-            System.out.println("Exit code is: " + exitcode);
-        }
+        logger.info("Exit code is: %d", exitcode);
         if (exitcode != 0) {
             System.exit(exitcode);
         }
