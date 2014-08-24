@@ -24,8 +24,6 @@ public class RunjarProperties {
         logger = Boolean.getBoolean("runjar.verbose") ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
     }
     final boolean keep = Boolean.getBoolean("runjar.keep");
-    //TODO: protected static final String RUNJAR_ARGS_CONVERTOR = "runjar.ArgsConvertor";
-    //TODO: protected static final String RUNJAR_SHUTDOWN_HOOK = "runjar.ShutdownHook";
 
     private Properties properties;
 
