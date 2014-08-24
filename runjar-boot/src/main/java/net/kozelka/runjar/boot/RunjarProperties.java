@@ -19,9 +19,6 @@ public class RunjarProperties {
     public static final String ARGS_PREPEND_PROP = "runjar.args.prepend";
     public static final String SHUTDOWN_FILE_PROP = "runjar.shutdown.file";
 
-    /**
-     * @todo instead use simple configurable logging/console filter
-     */
     public final SimpleLogger logger;
     {
         logger = Boolean.getBoolean("runjar.verbose") ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
