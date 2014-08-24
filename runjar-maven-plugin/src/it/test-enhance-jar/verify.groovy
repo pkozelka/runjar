@@ -1,0 +1,11 @@
+File runnableJar = new File(basedir, 'target/test-enhance-jar-run.jar')
+assert runnableJar.exists()
+File signal = new File(basedir, "target/signal.txt")
+println("Executing " + runnableJar)
+println([System.getProperty("java.home") + "/bin/java", "-jar", runnableJar.toString(), signal.getAbsolutePath()].execute().text)
+assert signal.exists()
+//File shutdownExecuted = new File(runnableJar.toString() + ".shutdown-was-called")
+//assert shutdownExecuted.exists()
+
+File installedArtifact = new File(basedir, "../../local-repo/com/example/test-enhance-jar/0-SNAPSHOT/test-enhance-jar-0-SNAPSHOT-run.jar")
+assert installedArtifact.exists()

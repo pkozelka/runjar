@@ -99,6 +99,9 @@
                     <settingsFile>src/it/settings.xml</settingsFile>
                     <skipInstallation>${skipTests}</skipInstallation>
                     <skipInvocation>${skipTests}</skipInvocation>
+                    <goals>
+                        <goal>install</goal>
+                    </goals>
                 </configuration>
                 <executions>
                     <execution>

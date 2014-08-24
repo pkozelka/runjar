@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.util.Properties;
 import java.util.Set;
 import net.kozelka.runjar.boot.RunjarProperties;
+import org.codehaus.plexus.archiver.zip.ZipArchiver;
 import org.codehaus.plexus.archiver.zip.ZipUnArchiver;
 import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
@@ -55,5 +56,14 @@ public class RunjarEnhancer {
 
     public void addScripts(File antScriptsDirectory) throws IOException {
         FileUtils.copyDirectory(antScriptsDirectory, workdir);
+    }
+
+    public void compress(File jar) throws IOException {
+        System.out.println("Compressing: " + jar);
+        final ZipArchiver archiver = new ZipArchiver();
+        archiver.setDestFile(jar);
+        archiver.addDirectory(workdir);
+        archiver.createArchive();
+
     }
 }

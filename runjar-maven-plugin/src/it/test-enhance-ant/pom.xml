@@ -32,6 +32,10 @@
                         <goals>
                             <goal>enhance-ant</goal>
                         </goals>
+                        <configuration>
+                            <!-- DIRTY! -->
+                            <runjarDirectory>${project.build.outputDirectory}</runjarDirectory>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
