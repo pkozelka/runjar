@@ -12,7 +12,6 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.*;
-import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 import org.codehaus.plexus.util.FileUtils;
 
@@ -60,6 +59,7 @@ public class EnhanceJarMojo extends AbstractEnhancerMojo {
             enhancer.expandBootJar(bootJar);
             final Properties properties = new Properties();
             properties.setProperty(RunjarProperties.MAIN_CLASS_PROP, mainClass);
+            properties.setProperty(RunjarProperties.SHUTDOWN_FILE_PROP, "${runjar.basedir}/.shutdown");
             enhancer.saveProperties(properties);
             enhancer.compress(runnableJar);
 
