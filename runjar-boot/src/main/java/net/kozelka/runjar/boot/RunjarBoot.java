@@ -73,6 +73,7 @@ public class RunjarBoot {
         logger.info("  classpath: %s", classpath);
 
         final RunjarShutdownHook shutdownHook = new RunjarShutdownHook();
+        shutdownHook.setLogger(logger);
         if (!props.keep) {
             shutdownHook.setDirToDelete(basedir);
         }
@@ -81,7 +82,6 @@ public class RunjarBoot {
             final CustomShutdownAction customAction = new CustomShutdownAction(invoker, request);
             customAction.setShutdownFile(new File(Utils.replaceProperties(shutdownFile, jvmProperties)));
             shutdownHook.setCustomAction(customAction);
-            shutdownHook.setLogger(logger);
         }
         if (!shutdownHook.isEmpty()) {
             Runtime.getRuntime().addShutdownHook(shutdownHook);
