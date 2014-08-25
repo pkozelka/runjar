@@ -1,3 +1,1 @@
-# RUNJAR
-
-A toolkit for easy creation of runnable java archives.
+Maven Site generated at http://code.kozelka.net/runjar
