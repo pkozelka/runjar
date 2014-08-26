@@ -51,8 +51,8 @@ public class RunjarBoot {
 
         // These properties will be available to the application
         final Properties jvmProperties = new Properties();
-        jvmProperties.setProperty("runjar.file", runjarfile.getAbsolutePath());
-        jvmProperties.setProperty("runjar.basedir", basedir.getAbsolutePath());
+        jvmProperties.setProperty(RunjarProperties.PROP_APP_FILE, runjarfile.getAbsolutePath());
+        jvmProperties.setProperty(RunjarProperties.PROP_APP_BASEDIR, basedir.getAbsolutePath());
 
         final ExecutionRequest request = new ExecutionRequest();
         request.setJvmProperties(jvmProperties);

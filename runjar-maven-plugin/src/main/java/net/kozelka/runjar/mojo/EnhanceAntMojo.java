@@ -58,9 +58,9 @@ public class EnhanceAntMojo extends AbstractEnhancerMojo {
             enhancer.addScripts(antScriptsDirectory);
             enhancer.expandBootJar(bootJar);
             final Properties properties = new Properties();
-            properties.setProperty(RunjarProperties.MAIN_CLASS_PROP, "org.apache.tools.ant.Main");
-            properties.setProperty(RunjarProperties.ARGS_PREPEND_PROP, ",-f,${runjar.basedir}/" + antFile);
-            properties.setProperty(RunjarProperties.SHUTDOWN_FILE_PROP, "${runjar.basedir}/.shutdown.properties"); //todo: shouldn't this be the default?
+            properties.setProperty(RunjarProperties.PROP_META_CLASS, "org.apache.tools.ant.Main");
+            properties.setProperty(RunjarProperties.PROP_META_ARGS_PREPEND, ",-f,${runjar.basedir}/" + antFile);
+            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, "${runjar.basedir}/.shutdown.properties"); //todo: shouldn't this be the default?
             enhancer.saveProperties(properties);
         } catch (IOException e) {
             throw new MojoFailureException(e.getMessage(), e);

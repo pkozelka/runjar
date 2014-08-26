@@ -43,8 +43,8 @@ public class RunjarEnhancer {
     }
 
     public void saveProperties(Properties properties) throws IOException {
-        if (properties.getProperty(RunjarProperties.MAIN_CLASS_PROP) == null) {
-            throw new IllegalArgumentException("Missing required property: " + RunjarProperties.MAIN_CLASS_PROP);
+        if (properties.getProperty(RunjarProperties.PROP_META_CLASS) == null) {
+            throw new IllegalArgumentException("Missing required property: " + RunjarProperties.PROP_META_CLASS);
         }
         final OutputStream os = new FileOutputStream(new File(workdir, RunjarProperties.RUNJAR_PROPERTIES_RES));
         try {

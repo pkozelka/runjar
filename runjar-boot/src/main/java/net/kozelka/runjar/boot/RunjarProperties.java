@@ -15,15 +15,26 @@ public class RunjarProperties {
 
     public static final String RUNJAR_PROPERTIES_RES = "META-INF/runjar.properties";
 
-    public static final String MAIN_CLASS_PROP = "runjar.main.class";
-    public static final String ARGS_PREPEND_PROP = "runjar.args.prepend";
-    public static final String SHUTDOWN_FILE_PROP = "runjar.shutdown.file";
+    // properties accepted from META-INF/runjar.properties
+    public static final String PROP_META_CLASS = "runjar.main.class";
+    public static final String PROP_META_ARGS_PREPEND = "runjar.args.prepend";
+    public static final String PROP_META_SHUTDOWN_FILE = "runjar.shutdown.file";
+
+    // properties accepted from command line (JVM properties)
+    public static final String PROP_CMDLINE_KEEP = "runjar.keep";
+    public static final String PROP_CMDLINE_VERBOSE = "runjar.verbose";
+    public static final String PROP_CMDLINE_BASEDIR = "runjar.basedir";
+
+    // properties passed on to application (JVM properties for nested app)
+    public static final String PROP_APP_BASEDIR = "runjar.basedir";
+    public static final String PROP_APP_FILE = "runjar.file";
 
     public final SimpleLogger logger;
+
     {
-        logger = Boolean.getBoolean("runjar.verbose") ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
+        logger = Boolean.getBoolean(PROP_CMDLINE_VERBOSE) ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
     }
-    final boolean keep = Boolean.getBoolean("runjar.keep");
+    final boolean keep = Boolean.getBoolean(PROP_CMDLINE_KEEP);
 
     private Properties properties;
 
@@ -34,20 +45,20 @@ public class RunjarProperties {
     }
 
     public String getMainClass() {
-        return properties.getProperty(MAIN_CLASS_PROP);
+        return properties.getProperty(PROP_META_CLASS);
     }
 
     public String getShutdownFile() {
-        return properties.getProperty(SHUTDOWN_FILE_PROP);
+        return properties.getProperty(PROP_META_SHUTDOWN_FILE);
     }
 
     public List<String> getArgsPrepend() {
-        return Utils.argsList(properties.getProperty(ARGS_PREPEND_PROP));
+        return Utils.argsList(properties.getProperty(PROP_META_ARGS_PREPEND));
     }
 
     public File getBasedir() throws IOException {
         if (basedir == null) {
-            final String basedirArg = System.getProperty("runjar.basedir");
+            final String basedirArg = System.getProperty(PROP_CMDLINE_BASEDIR);
             if (basedirArg == null) {
                 basedir = File.createTempFile("runjar-",".tmp");
                 basedir.delete();
@@ -82,7 +93,7 @@ public class RunjarProperties {
         props.load(url.openStream());
         final RunjarProperties result = new RunjarProperties(props);
         if (result.getMainClass() == null) {
-            throw new IllegalStateException(MAIN_CLASS_PROP + " has not been defined. Check the existence of this property in " + runjarPropertiesFileName);
+            throw new IllegalStateException(PROP_META_CLASS + " has not been defined. Check the existence of this property in " + runjarPropertiesFileName);
         }
         return result;
     }

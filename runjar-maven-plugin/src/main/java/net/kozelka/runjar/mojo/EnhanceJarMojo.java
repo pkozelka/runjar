@@ -58,8 +58,8 @@ public class EnhanceJarMojo extends AbstractEnhancerMojo {
             enhancer.addJars(jars);
             enhancer.expandBootJar(bootJar);
             final Properties properties = new Properties();
-            properties.setProperty(RunjarProperties.MAIN_CLASS_PROP, mainClass);
-            properties.setProperty(RunjarProperties.SHUTDOWN_FILE_PROP, "${runjar.basedir}/.shutdown");
+            properties.setProperty(RunjarProperties.PROP_META_CLASS, mainClass);
+            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, "${runjar.basedir}/.shutdown");
             enhancer.saveProperties(properties);
             enhancer.compress(runnableJar);
 
