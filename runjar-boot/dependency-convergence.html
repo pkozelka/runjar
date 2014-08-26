@@ -7,9 +7,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20140825" />
+    <meta name="Date-Revision-yyyymmdd" content="20140827" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>runjar-boot - Reactor Dependency Convergence</title>
+    <title>runjar-boot &#x2013; Reactor Dependency Convergence</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -32,14 +32,18 @@
         alt="Fork me on GitHub">
     </a>
   
-                        
+                
                     
                 
 
     <div id="topbar" class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-                                  <div class="container"><div class="nav-collapse">
-            
+                <div class="container-fluid">
+        <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
                 
                                             <a class="brand" href="http://code.kozelka.net/index.html"  title="code.kozelka.net">
 
@@ -49,18 +53,66 @@
                 </a>
                     
                                 <ul class="nav">
-                            </ul>
+                          <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="../index.html"  title="Overview">Overview</a>
+</li>
+                  
+                      <li>      <a href="index.html"  title="runjar-boot">runjar-boot</a>
+</li>
+                  
+                      <li>      <a href="../runjar-maven-plugin/index.html"  title="Maven Plugin">Maven Plugin</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="http://www.apache.org/"  title="Apache">Apache</a>
+</li>
+                  
+                      <li>      <a href="http://maven.apache.org/"  title="Maven 2">Maven 2</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li class="dropdown-submenu">
+                                      <a href="project-info.html"  title="Project Information">Project Information</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="team-list.html"  title="Project Team">Project Team</a>
+</li>
+                                  <li>      <a href="dependency-convergence.html"  title="Dependency Convergence">Dependency Convergence</a>
+</li>
+                                  <li>      <a href="issue-tracking.html"  title="Issue Tracking">Issue Tracking</a>
+</li>
+                                  <li>      <a href="license.html"  title="Project License">Project License</a>
+</li>
+                                  <li>      <a href="source-repository.html"  title="Source Repository">Source Repository</a>
+</li>
+                                  <li>      <a href="project-summary.html"  title="Project Summary">Project Summary</a>
+</li>
+                              </ul>
+            </li>
+                  
+                      <li class="dropdown-submenu">
+                                      <a href="project-reports.html"  title="Project Reports">Project Reports</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="pmd.html"  title="PMD">PMD</a>
+</li>
+                              </ul>
+            </li>
+                          </ul>
+      </li>
+                  </ul>
           
           
-                                              
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-        <ul class="nav pull-right"><li style="margin-top: 10px;">
-    
-    <div class="g-plusone" data-href="http://kozelka.github.io/runjar-boot/runjar-boot" data-size="medium"  width="60px" align="right" ></div>
-
-        </li></ul>
-                                            
+          
                    
                       </div>
           
@@ -68,7 +120,7 @@
       </div>
     </div>
     
-        <div class="container">
+        <div class="container-fluid">
           <div id="banner">
         <div class="pull-left">
                                 <div id="bannerLeft">
@@ -97,7 +149,7 @@
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-25</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-27</li>
               <li id="projectVersion" class="pull-right">
                     Version: 0.1-SNAPSHOT
         </li>
@@ -105,12 +157,136 @@
                             </ul>
       </div>
 
-      
+                  
+      <div class="row-fluid">
+        <div id="leftColumn" class="span2">
+          <div class="well sidebar-nav">
+                
+                    
+                <ul class="nav nav-list">
+                    <li class="nav-header">Documentation</li>
+                              
+      <li>
+  
+                          <a href="../index.html" title="Overview">
+          <i class="none"></i>
+        Overview</a>
+            </li>
+                
+      <li>
+  
+                          <a href="index.html" title="runjar-boot">
+          <i class="none"></i>
+        runjar-boot</a>
+            </li>
+                
+      <li>
+  
+                          <a href="../runjar-maven-plugin/index.html" title="Maven Plugin">
+          <i class="none"></i>
+        Maven Plugin</a>
+            </li>
+                              <li class="nav-header">Links</li>
+                              
+      <li>
+  
+                          <a href="http://www.apache.org/" class="externalLink" title="Apache">
+          <i class="none"></i>
+        Apache</a>
+            </li>
+                
+      <li>
+  
+                          <a href="http://maven.apache.org/" class="externalLink" title="Maven 2">
+          <i class="none"></i>
+        Maven 2</a>
+            </li>
+                              <li class="nav-header">Reports</li>
+                                                                                                                                                                                    
+      <li>
+  
+                          <a href="project-info.html" title="Project Information">
+          <i class="icon-chevron-down"></i>
+        Project Information</a>
+                    <ul class="nav nav-list">
+                    
+      <li>
+  
+                          <a href="team-list.html" title="Project Team">
+          <i class="none"></i>
+        Project Team</a>
+            </li>
+                    
+      <li class="active">
+  
+            <a href="#"><i class="none"></i>Dependency Convergence</a>
+          </li>
+                    
+      <li>
+  
+                          <a href="issue-tracking.html" title="Issue Tracking">
+          <i class="none"></i>
+        Issue Tracking</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="license.html" title="Project License">
+          <i class="none"></i>
+        Project License</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="source-repository.html" title="Source Repository">
+          <i class="none"></i>
+        Source Repository</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="project-summary.html" title="Project Summary">
+          <i class="none"></i>
+        Project Summary</a>
+            </li>
+              </ul>
+        </li>
+                                                                  
+      <li>
+  
+                          <a href="project-reports.html" title="Project Reports">
+          <i class="icon-chevron-right"></i>
+        Project Reports</a>
+                  </li>
+            </ul>
+                
+                    
+                
+          <hr />
+
+           <div id="poweredBy">
+                   
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+    
+    <div class="g-plusone" data-href="http://code.kozelka.net/runjar-boot/runjar-boot" data-size="tall" ></div>
+
+                   <div class="clear"></div>
+                            <div class="clear"></div>
+                            <div class="clear"></div>
+                            <div class="clear"></div>
+                                                                                                                   <a href="http://maven.apache.org" title="Apache Maven" class="builtBy">
+        <img class="builtBy"  alt="Apache Maven" src="http://maven.apache.org/images/logos/maven-feather.png"    />
+      </a>
+                      </div>
+          </div>
+        </div>
+        
                         
-        <div id="bodyColumn" >
+        <div id="bodyColumn"  class="span10" >
                                   
             <div class="section">
-<h2>Reactor Dependency Convergence<a name="Reactor_Dependency_Convergence"></a></h2>
+<h2><a name="Reactor_Dependency_Convergence"></a>Reactor Dependency Convergence</h2>
 <table border="0" class="table table-striped"><caption>
   <b>Legend:</b>
 </caption>
@@ -142,9 +318,9 @@
 <th>Ready for Release (100% Convergence and no SNAPSHOTS):</th>
 <td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>Success</b></td></tr></table></div>
 <div class="section">
-<h3>Dependencies used in sub-projects<a name="Dependencies_used_in_sub-projects"></a></h3>
+<h3><a name="Dependencies_used_in_sub-projects"></a>Dependencies used in sub-projects</h3>
 <div class="section">
-<h4>junit:junit<a name="junit:junit"></a></h4>
+<h4><a name="junit:junit"></a>junit:junit</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -154,9 +330,9 @@
 <td width="25%">4.11</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>net.kozelka.runjar:runjar-boot<a name="net.kozelka.runjar:runjar-boot"></a></h4>
+<h4><a name="net.kozelka.runjar:runjar-boot"></a>net.kozelka.runjar:runjar-boot</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -166,9 +342,9 @@
 <td width="25%">0.1-SNAPSHOT</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.apache.ant:ant<a name="org.apache.ant:ant"></a></h4>
+<h4><a name="org.apache.ant:ant"></a>org.apache.ant:ant</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -178,9 +354,9 @@
 <td width="25%">1.9.3</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.apache.ant:ant-launcher<a name="org.apache.ant:ant-launcher"></a></h4>
+<h4><a name="org.apache.ant:ant-launcher"></a>org.apache.ant:ant-launcher</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -190,9 +366,9 @@
 <td width="25%">1.9.3</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.apache.maven.plugin-tools:maven-plugin-annotations<a name="org.apache.maven.plugin-tools:maven-plugin-annotations"></a></h4>
+<h4><a name="org.apache.maven.plugin-tools:maven-plugin-annotations"></a>org.apache.maven.plugin-tools:maven-plugin-annotations</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -202,9 +378,9 @@
 <td width="25%">3.2</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.apache.maven:maven-plugin-api<a name="org.apache.maven:maven-plugin-api"></a></h4>
+<h4><a name="org.apache.maven:maven-plugin-api"></a>org.apache.maven:maven-plugin-api</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -214,9 +390,9 @@
 <td width="25%">2.2.1</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.apache.maven:maven-project<a name="org.apache.maven:maven-project"></a></h4>
+<h4><a name="org.apache.maven:maven-project"></a>org.apache.maven:maven-project</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -226,9 +402,9 @@
 <td width="25%">2.2.1</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.codehaus.plexus:plexus-archiver<a name="org.codehaus.plexus:plexus-archiver"></a></h4>
+<h4><a name="org.codehaus.plexus:plexus-archiver"></a>org.codehaus.plexus:plexus-archiver</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -238,9 +414,9 @@
 <td width="25%">2.4.4</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4>org.codehaus.plexus:plexus-utils<a name="org.codehaus.plexus:plexus-utils"></a></h4>
+<h4><a name="org.codehaus.plexus:plexus-utils"></a>org.codehaus.plexus:plexus-utils</h4>
 <table border="0" class="table table-striped">
 <tr class="a">
 <td><img alt="success" src="images/icon_success_sml.gif" /></td>
@@ -250,15 +426,16 @@
 <td width="25%">3.0.17</td>
 <td>
 <ol style="list-style-type: lower-alpha">
-<li><a class="externalLink" href="http://kozelka.github.io/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div></div>
+<li><a class="externalLink" href="http://code.kozelka.net/runjar-maven-plugin/runjar-maven-plugin">net.kozelka.maven:runjar-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div></div>
                   </div>
+            </div>
           </div>
 
     <hr/>
 
     <footer>
-            <div class="container">
-                      <div class="row">
+            <div class="container-fluid">
+                      <div class="row-fluid">
                               <p >Copyright &copy;                   2014.
           All rights reserved.      
                     
@@ -266,11 +443,6 @@
         </div>
 
         
-                <p id="poweredBy" class="pull-right">
-                                                                                                                <a href="http://maven.apache.org" title="Apache Maven" class="builtBy">
-        <img class="builtBy"  alt="Apache Maven" src="http://maven.apache.org/images/logos/maven-feather.png"    />
-      </a>
-                  </p>
         
                 </div>
     </footer>
