@@ -17,14 +17,17 @@ public class ForkedInvoker implements Invoker {
         // build invocation command
         final List<String> runCommand = new ArrayList<String>();
         runCommand.add(javaBinary);
-        if (classpathStr.length() > 0) {
-            //TODO: instead, generate JAR with custom manifest to make sure it works well also on windows!!!
-            runCommand.add("-classpath");
-            runCommand.add(classpathStr);
+        for (String jvmArg : request.getJvmArgs()) {
+            runCommand.add(jvmArg);
         }
         final Properties jvmProperties = request.getJvmProperties();
         for (Map.Entry<Object, Object> entry : jvmProperties.entrySet()) {
             runCommand.add("-D" + entry.getKey() + "=" + entry.getValue());
+        }
+        if (classpathStr.length() > 0) {
+            //TODO: instead, generate JAR with custom manifest to make sure it works well also on windows!!!
+            runCommand.add("-classpath");
+            runCommand.add(classpathStr);
         }
         runCommand.add(request.getMainClass());
         runCommand.addAll(request.getArgs());

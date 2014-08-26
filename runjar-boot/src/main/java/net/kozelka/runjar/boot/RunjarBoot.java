@@ -55,6 +55,7 @@ public class RunjarBoot {
         jvmProperties.setProperty(RunjarProperties.PROP_APP_BASEDIR, basedir.getAbsolutePath());
 
         final ExecutionRequest request = new ExecutionRequest();
+        request.setJvmArgs(props.getJvmArgs());
         request.setJvmProperties(jvmProperties);
         request.setMainClass(props.getMainClass());
         request.setClasspath(classpath);
@@ -66,7 +67,7 @@ public class RunjarBoot {
             allArgs.addAll(Arrays.asList(args));
         }
         request.setArgs(allArgs);
-        final Invoker invoker = new ForkedInvoker();
+        final Invoker invoker = new ForkedInvoker(); //todo make configurable in meta
 
         final SimpleLogger logger = props.logger;
         logger.info("Invoking %s.main %s", props.getMainClass(), allArgs);

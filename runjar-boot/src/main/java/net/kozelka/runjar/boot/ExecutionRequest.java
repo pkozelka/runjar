@@ -8,6 +8,7 @@ import java.util.Properties;
  * @author Petr Kozelka
  */
 public class ExecutionRequest {
+    private List<String> jvmArgs;
     private Properties jvmProperties;
     private List<File> classpath;
     private String mainClass;
@@ -17,6 +18,7 @@ public class ExecutionRequest {
     }
 
     public ExecutionRequest(ExecutionRequest orig) {
+        this.jvmArgs = orig.jvmArgs;
         this.jvmProperties = orig.jvmProperties;
         this.classpath = orig.classpath;
         this.mainClass = orig.mainClass;
@@ -53,5 +55,13 @@ public class ExecutionRequest {
 
     public void setArgs(List<String> args) {
         this.args = args;
+    }
+
+    public List<String> getJvmArgs() {
+        return jvmArgs;
+    }
+
+    public void setJvmArgs(List<String> jvmArgs) {
+        this.jvmArgs = jvmArgs;
     }
 }

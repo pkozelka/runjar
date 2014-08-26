@@ -24,6 +24,7 @@ public class RunjarProperties {
     public static final String PROP_CMDLINE_KEEP = "runjar.keep";
     public static final String PROP_CMDLINE_VERBOSE = "runjar.verbose";
     public static final String PROP_CMDLINE_BASEDIR = "runjar.basedir";
+    public static final String PROP_CMDLINE_JVMARGS = "runjar.jvmargs";
 
     // properties passed on to application (JVM properties for nested app)
     public static final String PROP_APP_BASEDIR = "runjar.basedir";
@@ -54,6 +55,10 @@ public class RunjarProperties {
 
     public List<String> getArgsPrepend() {
         return Utils.argsList(properties.getProperty(PROP_META_ARGS_PREPEND));
+    }
+
+    public List<String> getJvmArgs() {
+        return Utils.argsList(properties.getProperty(PROP_CMDLINE_JVMARGS));
     }
 
     public File getBasedir() throws IOException {

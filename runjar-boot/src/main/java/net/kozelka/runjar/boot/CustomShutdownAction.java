@@ -31,6 +31,7 @@ class CustomShutdownAction implements Runnable {
         if (shutdownFile.exists()) {
             try {
                 final ExecutionRequest shutdownRequest = new ExecutionRequest(originalRequest);
+                //TODO: should we reuse jvmargs ?
                 final Properties properties = new Properties();
                 properties.load(new FileInputStream(shutdownFile));
                 final List<String> shutdownArgs = Utils.argsList(properties.getProperty(RUNJAR_SHUTDOWN_ARGS));
