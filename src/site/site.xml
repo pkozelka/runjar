@@ -19,14 +19,14 @@
                 <alt>code.kozelka.net</alt>
                 <href>http://code.kozelka.net/index.html</href>
             </topBarIcon>
-            <sideBarEnabled>false</sideBarEnabled>
+            <sideBarEnabled>true</sideBarEnabled>
             <gitHub>
                 <projectId>pkozelka/runjar</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>green</ribbonColor>
             </gitHub>
-            <leftColumnClass>span3</leftColumnClass>
-            <bodyColumnClass>span9</bodyColumnClass>
+            <leftColumnClass>span2</leftColumnClass>
+            <bodyColumnClass>span10</bodyColumnClass>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
             <googlePlusOne/>
             <breadcrumbDivider>»</breadcrumbDivider>
@@ -54,9 +54,7 @@
         <menu name="Documentation">
             <item name="Overview" href="index.html"/>
             <item name="runjar-boot" href="runjar-boot/index.html"/>
-            <item name="Maven Plugin" href="runjar-maven-plugin/index.html">
-                <item name="Goals" href="runjar-maven-plugin/plugin-info.html"/>
-            </item>
+            <item name="Maven Plugin" href="runjar-maven-plugin/index.html"/>
         </menu>
         <menu name="Links">
             <item name="Apache" href="http://www.apache.org/"/>

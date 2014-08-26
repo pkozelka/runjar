@@ -12,7 +12,7 @@
         <version>9</version>
         <relativePath/>
     </parent>
-    <url>http://kozelka.github.io/${project.artifactId}</url>
+    <url>http://code.kozelka.net/${project.artifactId}</url>
     <description>Simple wrapper for executable java archives</description>
     <developers>
         <developer>
@@ -38,13 +38,28 @@
         <system>github</system>
         <url>https://github.com/pkozelka/${project.artifactId}/issues</url>
     </issueManagement>
-    <reporting>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.2</version>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.4</version>
+                <configuration>
+                    <attach>false</attach>
+                    <detail>true</detail>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.5</version>
+                    </dependency>
+                </dependencies>
             </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -52,7 +67,6 @@
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>dependencies</report>
                             <report>project-team</report>
                             <report>dependency-convergence</report>
                             <report>issue-tracking</report>

@@ -8,13 +8,14 @@
     <artifactId>runjar-boot</artifactId>
     <version>0.1-SNAPSHOT</version>
 
-    <name>${project.artifactId}</name>
 
     <parent>
         <groupId>net.kozelka.runjar</groupId>
         <artifactId>runjar</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
+
+    <name>${project.artifactId}</name>
 
     <build>
         <plugins>
