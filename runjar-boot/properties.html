@@ -7,9 +7,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20140825" />
+    <meta name="Date-Revision-yyyymmdd" content="20140828" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>runjar-boot - </title>
+    <title>runjar-boot &#x2013; Properties</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -49,7 +49,65 @@
                 </a>
                     
                                 <ul class="nav">
-                            </ul>
+                          <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="../index.html"  title="Overview">Overview</a>
+</li>
+                  
+                      <li>      <a href="index.html"  title="runjar-boot">runjar-boot</a>
+</li>
+                  
+                      <li>      <a href="../runjar-maven-plugin/index.html"  title="runjar-maven-plugin">runjar-maven-plugin</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="http://www.apache.org/"  title="Apache">Apache</a>
+</li>
+                  
+                      <li>      <a href="http://maven.apache.org/"  title="Maven 2">Maven 2</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li class="dropdown-submenu">
+                                      <a href="project-info.html"  title="Project Information">Project Information</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="team-list.html"  title="Project Team">Project Team</a>
+</li>
+                                  <li>      <a href="dependency-convergence.html"  title="Dependency Convergence">Dependency Convergence</a>
+</li>
+                                  <li>      <a href="issue-tracking.html"  title="Issue Tracking">Issue Tracking</a>
+</li>
+                                  <li>      <a href="license.html"  title="Project License">Project License</a>
+</li>
+                                  <li>      <a href="source-repository.html"  title="Source Repository">Source Repository</a>
+</li>
+                                  <li>      <a href="project-summary.html"  title="Project Summary">Project Summary</a>
+</li>
+                              </ul>
+            </li>
+                  
+                      <li class="dropdown-submenu">
+                                      <a href="project-reports.html"  title="Project Reports">Project Reports</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="pmd.html"  title="PMD">PMD</a>
+</li>
+                                  <li>      <a href="findbugs.html"  title="FindBugs Report">FindBugs Report</a>
+</li>
+                              </ul>
+            </li>
+                          </ul>
+      </li>
+                  </ul>
           
           
                                               
@@ -57,7 +115,7 @@
 
         <ul class="nav pull-right"><li style="margin-top: 10px;">
     
-    <div class="g-plusone" data-href="http://kozelka.github.io/runjar-boot/runjar-boot" data-size="medium"  width="60px" align="right" ></div>
+    <div class="g-plusone" data-href="http://code.kozelka.net/runjar-boot/runjar-boot" data-size="medium"  width="60px" align="right" ></div>
 
         </li></ul>
                                             
@@ -84,20 +142,20 @@
                 
                     
                               <li class="">
-                    <a href="index.html" title="runjar">
+                    <a href="../index.html" title="runjar">
         runjar</a>
                     <span class="divider">»</span>
       </li>
                 <li class="">
-                    <a href="./" title="runjar-boot">
+                    <a href="index.html" title="runjar-boot">
         runjar-boot</a>
                     <span class="divider">»</span>
       </li>
-        <li class="active "></li>
+        <li class="active ">Properties</li>
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-25</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-28</li>
               <li id="projectVersion" class="pull-right">
                     Version: 0.1-SNAPSHOT
         </li>
@@ -109,8 +167,51 @@
                         
         <div id="bodyColumn" >
                                   
-            <div class="section">
-<h2>Properties<a name="Properties"></a></h2></div>
+            <h1>Properties</h1>
+<div class="section">
+<h2><a name="Commandline_properties"></a>Commandline properties</h2>
+
+<ul>
+  
+<li><tt>runjar.verbose</tt> - print all diagnostic info to stderr</li>
+  
+<li><tt>runjar.keep</tt> - do not remove basedir before finishing</li>
+  
+<li><tt>runjar.basedir</tt> - where to (temporarily) extract the archive</li>
+  
+<li><tt>runjar.jvmopts</tt> - options to add to forked executions (including shutdown) - should allow debugging</li>
+</ul></div>
+<div class="section">
+<h2><a name="Application_properties"></a>Application properties</h2>
+<p>These properties are read from mandatory file <tt>META-INF/runjar.properties</tt> packaged within the resulting jar.</p>
+
+<ul>
+  
+<li><tt>runjar.class</tt> - which class to boot from</li>
+  
+<li><tt>runjar.preargs</tt> - arguments to prepend before commandline args; first char defines the delimiter. Expansion of output properties occurs.</li>
+  
+<li><tt>runjar.shutdown.file</tt> - pointer to propertyfile indicating how to shutdown gracefully; shutdownhook will use it for graceful application shutdown</li>
+</ul></div>
+<div class="section">
+<h2><a name="Shutdown_properties"></a>Shutdown properties</h2>
+
+<ul>
+  
+<li><tt>runjar.shutdown.class</tt> - which class to call for shutdown; conflicts with script.* options</li>
+  
+<li><tt>runjar.shutdown.args</tt> - arguments to be passed to shutdown execution</li>
+</ul></div>
+<div class="section">
+<h2><a name="Application_properties"></a>Application properties</h2>
+<p>These are passed on to contained application so that it can locate its resource on filesystem. It is however preferred that the app accesses all its files as java resources, rather than directly depending on internals of <i>Runjar</i>.</p>
+
+<ul>
+  
+<li><tt>runjar.file</tt> - file pointer to the original runjar archive; it is safe to assume that it exists and is in ZIP format</li>
+  
+<li><tt>runjar.basedir</tt> - directory where the runjar archive has been (temporarily) extracted; can be null if execution is  handled within original JVM with a sophisticated classloader</li>
+</ul></div>
                   </div>
           </div>
 

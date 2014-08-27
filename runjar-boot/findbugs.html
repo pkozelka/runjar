@@ -7,9 +7,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20140825" />
+    <meta name="Date-Revision-yyyymmdd" content="20140828" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>runjar-boot - FindBugs Bug Detector Report</title>
+    <title>runjar-boot &#x2013; FindBugs Bug Detector Report</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -49,7 +49,65 @@
                 </a>
                     
                                 <ul class="nav">
-                            </ul>
+                          <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="../index.html"  title="Overview">Overview</a>
+</li>
+                  
+                      <li>      <a href="index.html"  title="runjar-boot">runjar-boot</a>
+</li>
+                  
+                      <li>      <a href="../runjar-maven-plugin/index.html"  title="runjar-maven-plugin">runjar-maven-plugin</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li>      <a href="http://www.apache.org/"  title="Apache">Apache</a>
+</li>
+                  
+                      <li>      <a href="http://maven.apache.org/"  title="Maven 2">Maven 2</a>
+</li>
+                          </ul>
+      </li>
+                <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        
+                      <li class="dropdown-submenu">
+                                      <a href="project-info.html"  title="Project Information">Project Information</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="team-list.html"  title="Project Team">Project Team</a>
+</li>
+                                  <li>      <a href="dependency-convergence.html"  title="Dependency Convergence">Dependency Convergence</a>
+</li>
+                                  <li>      <a href="issue-tracking.html"  title="Issue Tracking">Issue Tracking</a>
+</li>
+                                  <li>      <a href="license.html"  title="Project License">Project License</a>
+</li>
+                                  <li>      <a href="source-repository.html"  title="Source Repository">Source Repository</a>
+</li>
+                                  <li>      <a href="project-summary.html"  title="Project Summary">Project Summary</a>
+</li>
+                              </ul>
+            </li>
+                  
+                      <li class="dropdown-submenu">
+                                      <a href="project-reports.html"  title="Project Reports">Project Reports</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="pmd.html"  title="PMD">PMD</a>
+</li>
+                                  <li>      <a href="findbugs.html"  title="FindBugs Report">FindBugs Report</a>
+</li>
+                              </ul>
+            </li>
+                          </ul>
+      </li>
+                  </ul>
           
           
                                               
@@ -57,7 +115,7 @@
 
         <ul class="nav pull-right"><li style="margin-top: 10px;">
     
-    <div class="g-plusone" data-href="http://kozelka.github.io/runjar-boot/runjar-boot" data-size="medium"  width="60px" align="right" ></div>
+    <div class="g-plusone" data-href="http://code.kozelka.net/runjar-boot/runjar-boot" data-size="medium"  width="60px" align="right" ></div>
 
         </li></ul>
                                             
@@ -84,12 +142,12 @@
                 
                     
                               <li class="">
-                    <a href="index.html" title="runjar">
+                    <a href="../index.html" title="runjar">
         runjar</a>
                     <span class="divider">»</span>
       </li>
                 <li class="">
-                    <a href="./" title="runjar-boot">
+                    <a href="index.html" title="runjar-boot">
         runjar-boot</a>
                     <span class="divider">»</span>
       </li>
@@ -97,7 +155,7 @@
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-25</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 2014-08-28</li>
               <li id="projectVersion" class="pull-right">
                     Version: 0.1-SNAPSHOT
         </li>
@@ -110,13 +168,13 @@
         <div id="bodyColumn" >
                                   
             <div class="section">
-<h2>FindBugs Bug Detector Report<a name="FindBugs_Bug_Detector_Report"></a></h2>
+<h2><a name="FindBugs_Bug_Detector_Report"></a>FindBugs Bug Detector Report</h2>
 <p>The following document contains the results of <a class="externalLink" href="http://findbugs.sourceforge.net">FindBugs Report</a></p>
 <p>FindBugs Version is <i>2.0.3</i></p>
 <p>Threshold is <i>medium</i></p>
 <p>Effort is <i>min</i></p></div>
 <div class="section">
-<h2>Summary<a name="Summary"></a></h2>
+<h2><a name="Summary"></a>Summary</h2>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Classes</th>
@@ -129,7 +187,7 @@
 <td>0</td>
 <td>0</td></tr></table></div>
 <div class="section">
-<h2>Files<a name="Files"></a></h2>
+<h2><a name="Files"></a>Files</h2>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Class</th>
@@ -147,7 +205,7 @@
 <td><a href="#net.kozelka.runjar.boot.Utils$1Rewriter">net.kozelka.runjar.boot.Utils$1Rewriter</a></td>
 <td>1</td></tr></table></div><a name="net.kozelka.runjar.boot.CustomShutdownAction"></a>
 <div class="section">
-<h3>net.kozelka.runjar.boot.CustomShutdownAction<a name="net.kozelka.runjar.boot.CustomShutdownAction"></a></h3>
+<h3><a name="net.kozelka.runjar.boot.CustomShutdownAction"></a>net.kozelka.runjar.boot.CustomShutdownAction</h3>
 <table border="0" class="table table-striped">
 <tr class="b">
 <th>Bug</th>
@@ -159,16 +217,16 @@
 <td>net.kozelka.runjar.boot.CustomShutdownAction.run() may fail to clean up java.io.InputStream</td>
 <td>EXPERIMENTAL</td>
 <td><a class="externalLink" href="http://findbugs.sourceforge.net/bugDescriptions.html#OBL_UNSATISFIED_OBLIGATION">OBL_UNSATISFIED_OBLIGATION</a></td>
-<td>35</td>
+<td>36</td>
 <td>Medium</td></tr>
 <tr class="b">
 <td>net.kozelka.runjar.boot.CustomShutdownAction.run() may fail to close stream</td>
 <td>BAD_PRACTICE</td>
 <td><a class="externalLink" href="http://findbugs.sourceforge.net/bugDescriptions.html#OS_OPEN_STREAM">OS_OPEN_STREAM</a></td>
-<td>35</td>
+<td>36</td>
 <td>Medium</td></tr></table></div><a name="net.kozelka.runjar.boot.RunjarProperties"></a>
 <div class="section">
-<h3>net.kozelka.runjar.boot.RunjarProperties<a name="net.kozelka.runjar.boot.RunjarProperties"></a></h3>
+<h3><a name="net.kozelka.runjar.boot.RunjarProperties"></a>net.kozelka.runjar.boot.RunjarProperties</h3>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Bug</th>
@@ -180,16 +238,16 @@
 <td>Exceptional return value of java.io.File.delete() ignored in net.kozelka.runjar.boot.RunjarProperties.getBasedir()</td>
 <td>BAD_PRACTICE</td>
 <td><a class="externalLink" href="http://findbugs.sourceforge.net/bugDescriptions.html#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">RV_RETURN_VALUE_IGNORED_BAD_PRACTICE</a></td>
-<td>53</td>
+<td>72</td>
 <td>Medium</td></tr>
 <tr class="a">
 <td>Exceptional return value of java.io.File.mkdirs() ignored in net.kozelka.runjar.boot.RunjarProperties.getBasedir()</td>
 <td>BAD_PRACTICE</td>
 <td><a class="externalLink" href="http://findbugs.sourceforge.net/bugDescriptions.html#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">RV_RETURN_VALUE_IGNORED_BAD_PRACTICE</a></td>
-<td>57</td>
+<td>76</td>
 <td>Medium</td></tr></table></div><a name="net.kozelka.runjar.boot.Utils"></a>
 <div class="section">
-<h3>net.kozelka.runjar.boot.Utils<a name="net.kozelka.runjar.boot.Utils"></a></h3>
+<h3><a name="net.kozelka.runjar.boot.Utils"></a>net.kozelka.runjar.boot.Utils</h3>
 <table border="0" class="table table-striped">
 <tr class="b">
 <th>Bug</th>
@@ -222,7 +280,7 @@
 <td>81</td>
 <td>Medium</td></tr></table></div><a name="net.kozelka.runjar.boot.Utils1Rewriter"></a>
 <div class="section">
-<h3>net.kozelka.runjar.boot.Utils$1Rewriter<a name="net.kozelka.runjar.boot.Utils1Rewriter"></a></h3>
+<h3><a name="net.kozelka.runjar.boot.Utils1Rewriter"></a>net.kozelka.runjar.boot.Utils$1Rewriter</h3>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Bug</th>
