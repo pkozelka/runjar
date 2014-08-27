@@ -7,7 +7,9 @@
 * `runjar.basedir` - where to (temporarily) extract the archive
 * `runjar.jvmopts` - options to add to forked executions (including shutdown) - should allow debugging
 
-## Packaged properties (in `META-INF/runjar.properties`)
+## Application properties 
+
+These properties are read from mandatory file `META-INF/runjar.properties` packaged within the resulting jar.
 
 * `runjar.class`         - which class to boot from
 * `runjar.preargs`       - arguments to prepend before commandline args; first char defines the delimiter. Expansion of output properties occurs.
