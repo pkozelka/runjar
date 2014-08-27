@@ -16,8 +16,8 @@ public class RunjarProperties {
     public static final String RUNJAR_PROPERTIES_RES = "META-INF/runjar.properties";
 
     // properties accepted from META-INF/runjar.properties
-    public static final String PROP_META_CLASS = "runjar.main.class";
-    public static final String PROP_META_ARGS_PREPEND = "runjar.args.prepend";
+    public static final String PROP_META_CLASS = "runjar.class";
+    public static final String PROP_META_ARGS_PREPEND = "runjar.preargs";
     public static final String PROP_META_SHUTDOWN_FILE = "runjar.shutdown.file";
 
     // properties accepted from command line (JVM properties)
