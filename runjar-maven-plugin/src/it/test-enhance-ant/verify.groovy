@@ -1,4 +1,4 @@
-File runnableJar = new File(basedir, 'target/test-enhance-ant-0-SNAPSHOT.jar')
+File runnableJar = new File(basedir, 'target/test-enhance-ant-0-SNAPSHOT-run.jar')
 assert runnableJar.exists()
 File signal = new File(basedir, "target/signal.txt")
 println("Executing " + runnableJar)

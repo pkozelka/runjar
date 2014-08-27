@@ -12,7 +12,7 @@ class HelloWorld {
         System.out.println("HelloWorld.main: writing to " + signalFile);
         FileUtils.fileWrite(signalFile, "Hi there!");
 
-        final File shutdownPropsFile = new File(System.getProperty("runjar.basedir"), ".shutdown");
+        final File shutdownPropsFile = new File(System.getProperty("runjar.basedir"), ".shutdown.properties");
 
         final Properties shProps = new Properties();
         shProps.setProperty("runjar.shutdown.class", GracefulShutdown.class.getName());

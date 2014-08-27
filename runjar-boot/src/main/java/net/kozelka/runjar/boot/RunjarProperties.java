@@ -30,11 +30,14 @@ public class RunjarProperties {
     public static final String PROP_APP_BASEDIR = "runjar.basedir";
     public static final String PROP_APP_FILE = "runjar.file";
 
-    public final SimpleLogger logger;
+    //
+    public static final String DEFAULT_SHUTDOWN_FILE = "${runjar.basedir}/.shutdown.properties";
 
+    public final SimpleLogger logger;
     {
         logger = Boolean.getBoolean(PROP_CMDLINE_VERBOSE) ? SimpleLogger.VERBOSE : SimpleLogger.SILENT;
     }
+
     final boolean keep = Boolean.getBoolean(PROP_CMDLINE_KEEP);
 
     private Properties properties;

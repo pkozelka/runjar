@@ -5,38 +5,29 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Properties;
 import java.util.Set;
-
 import net.kozelka.runjar.boot.RunjarProperties;
 import net.kozelka.runjar.enhancer.RunjarEnhancer;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.*;
-import org.apache.maven.project.MavenProjectHelper;
-import org.codehaus.plexus.util.FileUtils;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 
 /**
- * Enhances existing JAR (with a Main-Class attribute) to be an executable jar; adds libraries, boot etc.
+ * Creates runnable jar in existing jar module; adds all runtime dependencies, boot stuff etc.
  * @author Petr Kozelka
  */
 @Mojo(name = "enhance-jar", defaultPhase = LifecyclePhase.PACKAGE, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME)
 public class EnhanceJarMojo extends AbstractEnhancerMojo {
 
-    @Parameter(defaultValue = "run")
-    String classifier;
-
-    @Parameter(defaultValue = "true")
-    boolean attach;
-
     /**
      * the entry point.
      * @todo add automatic lookup: if there is exactly one main in the jar, it will be used
      */
-    @Parameter(defaultValue = "${project.groupId}.${project.artifactId}.Main")
+    @Parameter(defaultValue = "${project.groupId}.${project.artifactId}.Main", alias = "class", property = "runjar.class")
     String mainClass;
-
-    @Component
-    MavenProjectHelper helper;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -59,14 +50,9 @@ public class EnhanceJarMojo extends AbstractEnhancerMojo {
             enhancer.expandBootJar(bootJar);
             final Properties properties = new Properties();
             properties.setProperty(RunjarProperties.PROP_META_CLASS, mainClass);
-            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, "${runjar.basedir}/.shutdown");
+            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, RunjarProperties.DEFAULT_SHUTDOWN_FILE);
             enhancer.saveProperties(properties);
-            enhancer.compress(runnableJar);
-
-            if (attach) {
-                final String extension = FileUtils.extension(runnableJar.getName());
-                helper.attachArtifact(project, extension, classifier, runnableJar);
-            }
+            finalizeJar(enhancer);
         } catch (IOException e) {
             throw new MojoFailureException(e.getMessage(), e);
         }

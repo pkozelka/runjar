@@ -20,6 +20,7 @@
         <echo>basedir=${basedir}</echo>
         <fail unless="signal.file">ERROR: We need the signal.file property!</fail>
         <echo file="${signal.file}">Works!</echo>
+        <!-- the following code sets an action called from within a shutdown hook; this allows to schedule a code that gracefully closes the application -->
         <propertyfile file="${basedir}/.shutdown.properties">
             <entry key="runjar.shutdown.args" value=",-f,${ant.file},on-shutdown"/>
         </propertyfile>
@@ -27,6 +28,6 @@
 
     <target name="on-shutdown">
         <echo file="${runjar.file}.shutdown-was-called">SHUTDOWN CALLED</echo>
-        <echo>SHUTDOWN CALLED: ${signal.file}.shutdown-was-called</echo>
+        <echo>SHUTDOWN CALLED: ${runjar.file}.shutdown-was-called</echo>
     </target>
 </project>

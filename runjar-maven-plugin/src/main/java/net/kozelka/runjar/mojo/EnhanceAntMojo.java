@@ -1,5 +1,10 @@
 package net.kozelka.runjar.mojo;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.LinkedHashSet;
+import java.util.Properties;
+import java.util.Set;
 import net.kozelka.runjar.boot.RunjarProperties;
 import net.kozelka.runjar.enhancer.RunjarEnhancer;
 import org.apache.maven.artifact.Artifact;
@@ -9,12 +14,6 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Properties;
-import java.util.Set;
 
 /**
  * Enhances existing ANT buildfile with an executable jar with ant in it
@@ -60,8 +59,10 @@ public class EnhanceAntMojo extends AbstractEnhancerMojo {
             final Properties properties = new Properties();
             properties.setProperty(RunjarProperties.PROP_META_CLASS, "org.apache.tools.ant.Main");
             properties.setProperty(RunjarProperties.PROP_META_ARGS_PREPEND, ",-f,${runjar.basedir}/" + antFile);
-            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, "${runjar.basedir}/.shutdown.properties"); //todo: shouldn't this be the default?
+            properties.setProperty(RunjarProperties.PROP_META_SHUTDOWN_FILE, RunjarProperties.DEFAULT_SHUTDOWN_FILE); //todo: shouldn't this be the default?
             enhancer.saveProperties(properties);
+
+            enhancer.compress(runnableJar);
         } catch (IOException e) {
             throw new MojoFailureException(e.getMessage(), e);
         }

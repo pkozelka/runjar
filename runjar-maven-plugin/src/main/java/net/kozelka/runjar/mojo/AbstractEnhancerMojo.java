@@ -1,9 +1,11 @@
 package net.kozelka.runjar.mojo;
 
+import net.kozelka.runjar.enhancer.RunjarEnhancer;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
@@ -12,6 +14,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
+import org.apache.maven.project.MavenProjectHelper;
+import org.codehaus.plexus.util.FileUtils;
 
 /**
  * @author Petr Kozelka
@@ -20,19 +24,34 @@ public abstract class AbstractEnhancerMojo extends AbstractMojo {
     /**
      * Identifies the jar that we want to use as the boot jar.
      * @todo should this be configurable ?
-     * @todo should we instead use a classname (like RunjarProperties) as the identification ?
+     * @todo should we instead use a classname (like RunjarProperties) as the identification ? Looks like a better mechanism.
      */
     protected final String bootArtifactGA = "net.kozelka.runjar:runjar-boot";
 
+    /**
+     * The working directory where runnable jar's content is created.
+     */
     @Parameter(defaultValue = "${project.build.directory}/runjar")
     File runjarDirectory;
 
     /**
      * Runnable jar file name (output).
-     * Its extension is used as type when attaching to maven lifecycle.
+     * Its extension is used as the artifact type when attaching to maven lifecycle.
      */
     @Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}-run.jar")
     File runnableJar;
+
+    /**
+     * Whether to attach the {@link #runnableJar runnable artifact}.
+     */
+    @Parameter(defaultValue = "true")
+    boolean attach;
+
+    /**
+     * Classifier to use when attaching - see {@link #attach}.
+     */
+    @Parameter(defaultValue = "run")
+    String classifier;
 
     /**
      * Original jar file name (input)
@@ -40,10 +59,13 @@ public abstract class AbstractEnhancerMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}.jar")
     File jar;
 
+    @Component
+    MavenProjectHelper helper;
+
     @Parameter(property = "project", required = true, readonly = true)
     MavenProject project;
 
-    static File locateBootJar(String bootArtifactGA) throws IOException {
+    protected static File locateBootJar(String bootArtifactGA) throws IOException {
         final String[] ga = bootArtifactGA.split(":");
         final String res = "/META-INF/maven/" + ga[0] + "/" + ga[1] + "/pom.properties";
         final String path = EnhanceAntMojo.class.getResource(res).getPath();
@@ -78,5 +100,14 @@ public abstract class AbstractEnhancerMojo extends AbstractMojo {
             System.out.println(String.format("%s %s : %s", prefix, o.getClass(), o));
         }
         System.out.println();
+    }
+
+    protected void finalizeJar(RunjarEnhancer enhancer) throws IOException {
+        enhancer.compress(runnableJar);
+
+        if (attach) {
+            final String extension = FileUtils.extension(runnableJar.getName());
+            helper.attachArtifact(project, extension, classifier, runnableJar);
+        }
     }
 }
