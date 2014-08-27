@@ -6,7 +6,7 @@
         <menu name="Documentation">
             <item name="Overview" href="../index.html"/>
             <item name="runjar-boot" href="../runjar-boot/index.html"/>
-            <item name="Maven Plugin" href="index.html">
+            <item name="runjar-maven-plugin" href="index.html">
                 <item name="Goals" href="plugin-info.html"/>
             </item>
         </menu>
