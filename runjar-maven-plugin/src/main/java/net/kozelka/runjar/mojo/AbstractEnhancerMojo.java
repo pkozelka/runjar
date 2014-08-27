@@ -53,12 +53,6 @@ public abstract class AbstractEnhancerMojo extends AbstractMojo {
     @Parameter(defaultValue = "run")
     String classifier;
 
-    /**
-     * Original jar file name (input)
-     */
-    @Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}.jar")
-    File jar;
-
     @Component
     MavenProjectHelper helper;
 

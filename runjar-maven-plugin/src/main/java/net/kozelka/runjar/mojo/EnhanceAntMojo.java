@@ -19,7 +19,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
  * Enhances existing ANT buildfile with an executable jar with ant in it
  * @author Petr Kozelka
  */
-@Mojo(name = "enhance-ant", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME)
+@Mojo(name = "enhance-ant", defaultPhase = LifecyclePhase.PACKAGE, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME)
 public class EnhanceAntMojo extends AbstractEnhancerMojo {
 
     @Parameter(defaultValue = "${project.build.scriptSourceDirectory}")
