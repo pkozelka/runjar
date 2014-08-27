@@ -115,4 +115,9 @@
         <module>runjar-boot</module>
         <module>runjar-maven-plugin</module>
     </modules>
+    <scm>
+        <connection>scm:git:http://github.com/pkozelka/runjar.git</connection>
+        <developerConnection>scm:git:git@github.com:pkozelka/runjar.git</developerConnection>
+        <url>http://github.com/pkozelka/runjar</url>
+    </scm>
 </project>

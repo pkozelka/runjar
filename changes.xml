@@ -4,7 +4,7 @@
     <properties>
     </properties>
     <body>
-        <release version="1.0-SNAPSHOT" description="Initial release">
+        <release version="0.1-SNAPSHOT" description="Initial release">
             <action dev="Petr Kozelka" type="add">Initial implementation, started by refactoring SWAR toolkit evolving through Buildbox from Eurotel seed</action>
         </release>
     </body>
