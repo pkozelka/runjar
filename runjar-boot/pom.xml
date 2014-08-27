@@ -4,13 +4,13 @@
 
     <groupId>net.kozelka.runjar</groupId>
     <artifactId>runjar-boot</artifactId>
-    <version>0.1.0</version>
+    <version>0.1-SNAPSHOT</version>
 
 
     <parent>
         <groupId>net.kozelka.runjar</groupId>
         <artifactId>runjar</artifactId>
-        <version>0.1.0</version>
+        <version>0.1-SNAPSHOT</version>
     </parent>
 
     <name>${project.artifactId}</name>

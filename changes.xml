@@ -5,6 +5,9 @@
     <properties>
     </properties>
     <body>
+        <release version="0.1-SNAPSHOT">
+        <!-- add changes here -->
+        </release>
         <release version="0.1.0" date="2014-08-28" description="Initial release">
             <action dev="Petr Kozelka" type="add">Initial implementation, started by refactoring SWAR toolkit evolving through Buildbox from Eurotel seed</action>
         </release>
