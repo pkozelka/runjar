@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.kozelka.maven</groupId>
     <artifactId>runjar-maven-plugin</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>maven-plugin</packaging>
     <name>${project.artifactId}</name>
     <parent>
         <groupId>net.kozelka.runjar</groupId>
         <artifactId>runjar</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
     <description>turn jar into executable jar</description>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>net.kozelka.runjar</groupId>
             <artifactId>runjar-boot</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1.0</version>
         </dependency>
 
         <dependency>
