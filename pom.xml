@@ -14,6 +14,7 @@
     </parent>
     <url>http://code.kozelka.net/${project.artifactId}</url>
     <description>Simple wrapper for executable java archives</description>
+    <inceptionYear>2005</inceptionYear>
     <developers>
         <developer>
             <name>Petr Kozelka</name>
