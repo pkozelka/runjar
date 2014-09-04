@@ -20,11 +20,13 @@
                 <href>http://code.kozelka.net/index.html</href>
             </topBarIcon>
             <sideBarEnabled>false</sideBarEnabled>
+<!--
             <gitHub>
                 <projectId>pkozelka/runjar</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>green</ribbonColor>
             </gitHub>
+-->
             <leftColumnClass>span2</leftColumnClass>
             <bodyColumnClass>span10</bodyColumnClass>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
@@ -57,6 +59,7 @@
             <item name="runjar-maven-plugin" href="runjar-maven-plugin/index.html"/>
         </menu>
         <menu name="Links">
+            <item name="Fork me on GitHub" href="${project.scm.url}"/>
             <item name="Apache" href="http://www.apache.org/"/>
             <item name="Maven 2" href="http://maven.apache.org/"/>
         </menu>
