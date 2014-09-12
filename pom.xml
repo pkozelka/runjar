@@ -155,6 +155,7 @@
         <module>runjar-boot</module>
         <module>runjar-maven-plugin</module>
         <module>samples/wildfly-helloworld-rs</module>
+        <module>samples/sample-war</module>
     </modules>
     <scm>
         <connection>scm:git:http://github.com/pkozelka/runjar.git</connection>
