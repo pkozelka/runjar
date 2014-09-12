@@ -18,8 +18,6 @@ import java.util.zip.ZipFile;
  * @author Petr Kozelka
  */
 public class Utils {
-    public static final String PATH_SEPARATOR = System.getProperty("path.separator");
-
     static String commandToString(List<String> commandLineElements) {
         final StringBuilder sb = new StringBuilder();
         for (String cle : commandLineElements) {
@@ -50,13 +48,13 @@ public class Utils {
         }
     }
 
-    static String classpath(List<File> urlList) {
+    static String classpath(List<File> cpeList) {
         final StringBuilder sb = new StringBuilder();
-        for (File url : urlList) {
+        for (File cpe : cpeList) {
             if (sb.length() > 0) {
-                sb.append(PATH_SEPARATOR);
+                sb.append(File.pathSeparator);
             }
-            sb.append(url.getAbsolutePath());
+            sb.append(cpe.getAbsolutePath());
         }
         return sb.toString();
     }

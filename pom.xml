@@ -15,6 +15,16 @@
     <url>http://code.kozelka.net/${project.artifactId}</url>
     <description>Simple wrapper for executable java archives</description>
     <inceptionYear>2005</inceptionYear>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <developers>
         <developer>
             <name>Petr Kozelka</name>
