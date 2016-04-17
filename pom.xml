@@ -54,18 +54,27 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.4</version>
+                <version>3.5</version>
                 <configuration>
-                    <attach>false</attach>
-                    <detail>true</detail>
+                    <skipDeploy>true</skipDeploy>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.doxia</groupId>
-                        <artifactId>doxia-module-markdown</artifactId>
-                        <version>1.6</version>
-                    </dependency>
-                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>net.kozelka.maven</groupId>
+                <artifactId>gitsite-maven-plugin</artifactId>
+                <version>0.1.0</version>
+                <executions>
+                    <execution>
+                        <id>gitsite-deploy</id>
+                        <phase>site-deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <gitBranch>gh-pages</gitBranch>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -160,4 +169,12 @@
         <developerConnection>scm:git:git@github.com:pkozelka/runjar.git</developerConnection>
         <url>https://github.com/pkozelka/runjar</url>
     </scm>
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <name>gitsite</name>
+            <!-- for staging multi-pom site -->
+            <url>http://code.kozelka.net/runjar</url>
+        </site>
+    </distributionManagement>
 </project>

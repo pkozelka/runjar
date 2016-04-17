@@ -23,3 +23,6 @@ site:
 
 site-deploy:
 	git push origin gh-pages
+
+gitsite:
+	mvn clean install site site:stage site-deploy -e
