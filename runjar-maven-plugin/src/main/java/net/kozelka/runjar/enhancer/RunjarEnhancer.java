@@ -9,8 +9,6 @@ import java.util.Set;
 import net.kozelka.runjar.boot.RunjarProperties;
 import org.codehaus.plexus.archiver.zip.ZipArchiver;
 import org.codehaus.plexus.archiver.zip.ZipUnArchiver;
-import org.codehaus.plexus.logging.Logger;
-import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.codehaus.plexus.util.FileUtils;
 
 /**
@@ -36,7 +34,6 @@ public class RunjarEnhancer {
 
     public void expandBootJar(File bootJar) {
         final ZipUnArchiver unarchiver = new ZipUnArchiver();
-        unarchiver.enableLogging(new ConsoleLogger(Logger.LEVEL_FATAL, "runjar"));
         unarchiver.setSourceFile(bootJar);
         unarchiver.setDestDirectory(workdir);
         unarchiver.extract();
